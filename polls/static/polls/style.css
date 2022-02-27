@@ -1,0 +1,19 @@
+li a {
+    color: green;
+}
+
+body {
+    background: white;
+    align-content: center;
+    margin: auto;
+}
+
+ol{
+  justify-content: center;
+
+}
+
+head{
+    align-content: center;
+    justify-content: center;
+}

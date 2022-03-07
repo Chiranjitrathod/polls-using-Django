@@ -1,14 +1,45 @@
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .form-container{
+            width: auto;
+            height: auto;
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 0 #000;
+            margin: auto;
+        }
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-<head><h1>Computer Science </h1></head>
+        ul li{
+            text-align: center;
+        }
 
-{% if latest_question_list %}
-    <ol type="1">
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ol>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="form-container">
+
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
